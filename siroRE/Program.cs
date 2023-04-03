@@ -100,14 +100,19 @@ namespace siroRE
                 Cv2.ResizeWindow("canva", new OpenCvSharp.Size(canva.Width * 0.3, canva.Height * 0.3));
                 Cv2.ImShow("canva", canva);
 
-                var files = new string[] {
-                    "build.png", "resultC.png", // "workshop.png",
-                    "done1.png", "done2.png", "done3.png", "done4.png",
-                    "idle1.png", "idle2.png", "idle3.png", "idle4.png"
+                var day = new string[] {
+                    "daychange.png", "stamp.png", "info.png", "home.png",
+                    "workshop.png", "build.png", "resultC.png",
+                    "idle1.png", "idle2.png", "idle3.png", "idle4.png",
+                    "done1.png", "done2.png", "done3.png", "done4.png"
+                };
+                var night = new string[] {
+                    "workshop.png", "build.png", "resultC.png",
+                    "idle1.png", "idle2.png", "idle3.png", "idle4.png",
+                    "done1.png", "done2.png", "done3.png", "done4.png"
                 };
 
-
-                foreach (string filename in files)
+                foreach (string filename in (2 <= DateTime.Now.Hour && DateTime.Now.Hour < 6) ? day : night)
                 {
                     string filepath = @"Resource\" + filename;
                     // // timer

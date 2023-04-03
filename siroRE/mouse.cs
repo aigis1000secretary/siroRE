@@ -29,7 +29,9 @@ namespace siroRE
 
         static public void Click(int x, int y)
         {
-            //SetCursorPos(x, y);
+
+            mouse_event((int)MouseEventTFlags.LEFTUP, 0, 0, 0, IntPtr.Zero);
+            Thread.Sleep(10);
 
             Cursor.Position = new Point(x, y);
             mouse_event((int)(MouseEventTFlags.LEFTDOWN), 0, 0, 0, IntPtr.Zero);
